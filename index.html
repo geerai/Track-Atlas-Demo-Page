@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0f10" />
+    <title>Track Atlas — MIDI Arrangement Demo</title>
+    <meta name="description" content="Listen to and inspect piano, guitar, bass, drums and melody across five selected MIDI arrangements." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Track Atlas home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span>Track Atlas</span>
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">MIDI ARRANGEMENT INSPECTOR / AUDIO DEMO</p>
+          <h1>See the arrangement.<br /><em>Hear every track.</em></h1>
+          <p class="intro">Five selected MIDI arrangements. Piano, guitar, bass, drums and melody stay synchronized on one timeline.</p>
+        </div>
+        <aside class="shape-card" aria-label="Dataset shape">
+          <span>Dataset shape</span>
+          <strong>4 + 1</strong>
+          <p>Piano · Guitar · Bass · Drums<br />plus Melody</p>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-label="MIDI arrangement player">
+        <div class="song-tabs" id="song-tabs" role="tablist" aria-label="Choose a MIDI file"></div>
+
+        <header class="transport">
+          <div class="song-title">
+            <p>Now inspecting</p>
+            <h2 id="song-title"></h2>
+            <span id="song-subtitle"></span>
+            <strong class="style-chip" id="song-style"></strong>
+          </div>
+          <div class="transport-summary" id="transport-summary"></div>
+          <div class="audio-controls">
+            <button id="play-button" class="play-button" type="button" aria-label="Play MIDI at original tempo">
+              <span aria-hidden="true">▶</span> Play original tempo
+            </button>
+            <label class="volume-control">
+              <span>Volume</span>
+              <input id="volume" type="range" min="0" max="100" value="55" aria-label="Master volume" />
+            </label>
+          </div>
+        </header>
+
+        <div class="audio-notice" id="audio-notice" role="status">
+          <span class="speaker" aria-hidden="true">◖))</span>
+          Click <strong>Play original tempo</strong>. Timing follows the MIDI tempo map and the note window scrolls with the song.
+        </div>
+
+        <div class="playback-progress">
+          <time id="current-time">0:00</time>
+          <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Song position" />
+          <time id="duration-time">0:00</time>
+          <span class="window-label">12-second rolling window</span>
+        </div>
+
+        <div class="timeline-ruler" id="timeline-ruler" aria-hidden="true"></div>
+        <div id="tracks" class="tracks"></div>
+
+        <footer class="workspace-footer">
+          <span><i class="legend-note"></i> MIDI note event</span>
+          <span><i class="legend-line"></i> Audio playhead</span>
+          <span>Pitch rises vertically · duration runs horizontally</span>
+          <code id="filename"></code>
+        </footer>
+      </section>
+
+      <section class="dataset-guide">
+        <p class="eyebrow">ABOUT THE DATASET</p>
+        <div class="dataset-heading">
+          <h2>Arrangement and melody,<br /><em>aligned as one system.</em></h2>
+          <p>The combined Jazz MIDI and MulTTiPop release contains 1,242 usable MIDI arrangements after overlap-aware duplicate removal and low-quality-track filtering. Of these, 509 arrangements contain all four core instrument tracks—piano, guitar, bass and drums—plus a separate melody track, while 733 other usable arrangements contain supported partial combinations of these five roles. The synchronized multi-track data is useful for arrangement analysis, accompaniment generation, melody conditioning, track separation and multi-track music modeling.</p>
+        </div>
+      </section>
+    </main>
+
+    <noscript>This demo needs JavaScript enabled to draw and play the MIDI notes.</noscript>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
