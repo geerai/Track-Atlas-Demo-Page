@@ -14,3 +14,5 @@ https://geerai.github.io/Track-Atlas-Demo-Page/
 
 Open `index.html` in a modern browser. Keep `index.html`, `styles.css`, `app.js`, and `data.js` in the same directory.
 
+See [USAGE.md](USAGE.md) for playback instructions and troubleshooting.
+
